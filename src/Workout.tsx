@@ -26,19 +26,21 @@ export const Workout: React.FC<Props> = ({ moves, intervalTime }) => {
         <p style={{ fontSize: "2em" }}>
           {intervalIndex % 2 === 0 ? "Work" : "Rest"}
         </p>
-        <p>{currentSecond}</p>
+        <p style={{ fontSize: "10em" }}>{currentSecond}</p>
       </div>
-      {moves.map((move, i) => (
-        <p
-          style={
-            i === currentExerciseIndex
-              ? { fontWeight: "bold", fontSize: "2em" }
-              : {}
-          }
-        >
-          {move}
-        </p>
-      ))}
+      {moves
+        .filter((_m, i) => i >= currentExerciseIndex)
+        .map((move, i) => (
+          <p
+            style={
+              i === 0
+                ? { fontWeight: "bold", fontSize: "5em" }
+                : { fontSize: "2em" }
+            }
+          >
+            {move}
+          </p>
+        ))}
     </PageContainer>
   );
 };
