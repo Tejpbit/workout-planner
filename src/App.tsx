@@ -47,6 +47,11 @@ const App = () => {
       <div>
         <input
           type="button"
+          value="5/5"
+          onClick={() => setIntervalTime({ work: 5, rest: 5 })}
+        />
+        <input
+          type="button"
           value="30/30"
           onClick={() => setIntervalTime({ work: 30, rest: 30 })}
         />
@@ -74,9 +79,12 @@ const App = () => {
 };
 export default App;
 
-export const PageContainer = styled.div`
+export const PageContainer = styled.div<{ backgroundColor?: string }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: ${(props) => props.backgroundColor};
+  width: 100vw;
+  height: 100vh;
 `;
